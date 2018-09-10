@@ -163,7 +163,11 @@ def send_token(request):
 def get_account_detail(request):
     ether_balance=get_eth_balance(request.user)
     cc_balance=get_contract_balance(request.user)
-    data={'eth_balance': ether_balance, 'cc_balance':cc_balance, 'detail':'Successful', 'status':'200'}
+    transactions = Transaction.objects.filter(user=request.user)[:10]
+    txs = [{'to': tx.to_addr, 'tx_hash': tx.tx_hash, 'amount': Web3.fromWei(int(tx.amount_in_wei), 'ether'),
+            'coin': tx.currency} for tx in transactions]
+    data={'eth_balance': ether_balance, 'trasactions':txs,'cc_balance':cc_balance, 'detail':'Successful', 'status':'200'}
+
     return Response(data, status=HTTP_200_OK)
 
 @csrf_exempt
