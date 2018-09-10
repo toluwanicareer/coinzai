@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18f50608-92f5-4d20-bab3-a7995ab12048" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api_auth/models.py" afterPath="$PROJECT_DIR$/api_auth/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api_auth/views.py" afterPath="$PROJECT_DIR$/api_auth/views.py" />
-    </list>
+    <list default="true" id="18f50608-92f5-4d20-bab3-a7995ab12048" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
