@@ -47,7 +47,7 @@ def login(request):
                         status=HTTP_404_NOT_FOUND)
     token, _ = Token.objects.get_or_create(user=user)
 
-    return Response({'token': token.key, 'status':200, 'detail':'successful', 'phone':user.wallet.phone_number, 'email':user.email},
+    return Response({'token': token.key, 'status':200,'firstname':user.first_name, 'lastname':user.last_name, 'detail':'successful', 'phone':user.wallet.phone_number, 'email':user.email},
                     status=HTTP_200_OK)
 
 @csrf_exempt
