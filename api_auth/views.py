@@ -21,9 +21,24 @@ import pdb
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def login(request):
-    username = request.data.get("username")
+    #email = request.data.get("username")
     password = request.data.get("password")
-    if username is None or password is None:
+    login_type=request.data.get("login_type")
+    if login_type.lower()=='phone':
+        phone_number=request.data.get("phone_number")
+        try:
+            username=Wallet.objects.get(phone_number=phone_number).user.username
+        except Wallet.DoesNotExist:
+            return Response({'detail': 'Please provide valid phone number', 'status': 400},
+                            status=HTTP_400_BAD_REQUEST)
+    else:
+        email = request.data.get("email")
+        try:
+            username=User.objects.get(email__icontains=email).username
+        except User.DoesNotExist:
+            return Response({'detail': 'Please provide valid phone number', 'status': 400},
+                            status=HTTP_400_BAD_REQUEST)
+    if  password is None:
         return Response({'detail': 'Please provide both username and password', 'status':400},
                         status=HTTP_400_BAD_REQUEST)
     user = authenticate(username=username, password=password)
@@ -31,7 +46,8 @@ def login(request):
         return Response({'detail': 'Invalid Credentials', 'status':400},
                         status=HTTP_404_NOT_FOUND)
     token, _ = Token.objects.get_or_create(user=user)
-    return Response({'token': token.key, 'status':200, 'detail':'successful'},
+
+    return Response({'token': token.key, 'status':200, 'detail':'successful', 'phone':user.wallet.phone_number, 'email':user.email},
                     status=HTTP_200_OK)
 
 @csrf_exempt
@@ -43,6 +59,7 @@ def signup(request):
     email=request.data.get("email")
     firstname=request.data.get("firstname")
     lastname=request.data.get("lastname")
+    phone_number=request.data.get("phonenumber")
     status=chk_email(email)
     if status:  # email does not exist
         try:
@@ -52,7 +69,7 @@ def signup(request):
             user = User.objects.create_user(username=username, is_active=True, password=password,
                                             first_name=firstname, last_name=lastname, email=email)
             user.save()
-            address=create_wallet(user)
+            address=create_wallet(user, phone_number)
             return Response({'detail':'Successful', 'status':200}, status=HTTP_200_OK)
 
     else:
@@ -167,7 +184,7 @@ def chk_email(email):
     else:
         return True
 
-def create_wallet(user):
+def create_wallet(user, phone_number):
 
     #cannot create more than a particualr number of account
     user_wallets_count=Wallet.objects.filter(user=user)
@@ -176,7 +193,7 @@ def create_wallet(user):
     # create the wallet on the localhost node, so the node can manage it
     web3=get_web3()
     address=web3.personal.newAccount(user.username)
-    wallet=Wallet(address=address, user=user)#create the wallet instance to store in database for future reference
+    wallet=Wallet(address=address, user=user, phone_number=phone_number)#create the wallet instance to store in database for future reference
     #unlock account for use
     web3.personal.unlockAccount(address,passphrase=user.username)
     #TODO: handle error, if unlock account is not successful

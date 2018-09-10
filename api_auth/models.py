@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Wallet(models.Model):
     address=models.CharField(max_length=200)
     user=models.OneToOneField(User, on_delete=models.CASCADE)
+    phone_number=models.CharField(max_length=200, null=True)
 
 class Transaction(models.Model):
     from_addr=models.CharField(max_length=200)
