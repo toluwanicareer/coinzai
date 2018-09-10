@@ -166,7 +166,7 @@ def get_account_detail(request):
     transactions = Transaction.objects.filter(user=request.user)[:10]
     txs = [{'to': tx.to_addr, 'tx_hash': tx.tx_hash, 'amount': Web3.fromWei(int(tx.amount_in_wei), 'ether'),
             'coin': tx.currency, 'status':'completed', 'date':tx.tx_date.date, 'type':'send'} for tx in transactions]
-    data={'eth_balance': ether_balance, 'trasactions':txs,'cc_balance':cc_balance, 'detail':'Successful', 'status':'200'}
+    data={'eth_balance': ether_balance, 'transactions':txs,'cc_balance':cc_balance, 'detail':'Successful', 'status':'200'}
 
     return Response(data, status=HTTP_200_OK)
 
