@@ -15,4 +15,5 @@ class Transaction(models.Model):
     mined_status=models.BooleanField(default=False)
     tx_hash=models.CharField(max_length=200)
     currency=models.CharField(max_length=100, default='eth')
+    tx_date=models.DateTimeField(auto_now_add=True, null=True)
     user=models.ForeignKey(User, on_delete=models.CASCADE, null=True)

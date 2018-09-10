@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18f50608-92f5-4d20-bab3-a7995ab12048" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api_auth/models.py" afterPath="$PROJECT_DIR$/api_auth/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api_auth/views.py" afterPath="$PROJECT_DIR$/api_auth/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api_auth/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="170" column="44" lean-forward="true" selection-start-line="170" selection-start-column="44" selection-end-line="170" selection-end-column="44" />
+            <state relative-caret-position="127">
+              <caret line="167" column="77" lean-forward="false" selection-start-line="167" selection-start-column="77" selection-end-line="167" selection-end-column="77" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -64,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api_auth/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="8" column="59" lean-forward="false" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
+            <state relative-caret-position="210">
+              <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -106,8 +107,8 @@
       <list>
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/wallet/settings.py" />
-        <option value="$PROJECT_DIR$/api_auth/models.py" />
         <option value="$PROJECT_DIR$/api_auth/views.py" />
+        <option value="$PROJECT_DIR$/api_auth/models.py" />
       </list>
     </option>
   </component>
@@ -471,22 +472,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api_auth/models.py">
+    <entry file="file://$PROJECT_DIR$/api_auth/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="8" column="59" lean-forward="false" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
+        <state relative-caret-position="127">
+          <caret line="167" column="77" lean-forward="false" selection-start-line="167" selection-start-column="77" selection-end-line="167" selection-end-column="77" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api_auth/views.py">
+    <entry file="file://$PROJECT_DIR$/api_auth/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="170" column="44" lean-forward="true" selection-start-line="170" selection-start-column="44" selection-end-line="170" selection-end-column="44" />
+        <state relative-caret-position="210">
+          <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
           <folding>
-            <element signature="e#0#44#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
