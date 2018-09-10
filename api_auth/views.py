@@ -36,7 +36,7 @@ def login(request):
         try:
             username=User.objects.get(email__icontains=email).username
         except User.DoesNotExist:
-            return Response({'detail': 'Please provide valid phone number', 'status': 400},
+            return Response({'detail': 'Please provide valid email', 'status': 400},
                             status=HTTP_400_BAD_REQUEST)
     if  password is None:
         return Response({'detail': 'Please provide both username and password', 'status':400},
