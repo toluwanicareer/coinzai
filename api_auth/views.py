@@ -59,7 +59,7 @@ def signup(request):
     email=request.data.get("email")
     firstname=request.data.get("firstname")
     lastname=request.data.get("lastname")
-    phone_number=request.data.get("phonenumber")
+    phone_number=request.data.get("phone_number")
     status=chk_email(email)
     if status:  # email does not exist
         try:
