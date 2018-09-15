@@ -60,7 +60,7 @@ def signup(request):
     firstname=request.data.get("firstname")
     lastname=request.data.get("lastname")
     phone_number=request.data.get("phone_number")
-    status=chk_email(email)
+    status=chk_email(email, phone_number)
     if status:  # email does not exist
         try:
             user = User.objects.get(username=username)
@@ -181,12 +181,14 @@ def get_transactions(request):
 
 
 
-def chk_email(email):
+def chk_email(email,phone):
     user=User.objects.filter(email=email)
     if user.exists():
         return False
-    else:
-        return True
+    wallet=Wallet.objects.filter(phone_number=phone)
+    if wallet.exists():
+        return False
+    return True
 
 def create_wallet(user, phone_number):
 
